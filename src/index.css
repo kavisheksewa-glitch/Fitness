@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=JetBrains+Mono:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================================
+   BASE STYLES & FONTS
+   ============================================================================ */
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #09090b; /* Tailwind zinc-950 */
+    color: #ffffff;
+  }
+
+  body {
+    background-color: #09090b;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* Font Overrides */
+  h1, h2, h3, .font-serif {
+    font-family: 'Cinzel', serif;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* ============================================================================
+   CUSTOM LUXURY AMBER SCROLLBAR
+   ============================================================================ */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+  border: 1px solid #3f3f46;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #f59e0b; /* Amber accent on hover */
+}
+
+/* ============================================================================
+   KEYFRAME ANIMATIONS
+   ============================================================================ */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+/* Helper Animation Classes */
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-glowPulse {
+  animation: glowPulse 4s infinite ease-in-out;
+}
+
+/* ============================================================================
+   CUSTOM UTILITY CLASSES & GLASSMORPHISM
+   ============================================================================ */
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
+  }
+
+  .border-glow {
+    box-shadow: 0 0 20px -3px rgba(245, 158, 11, 0.2);
+  }
+
+  .bg-glass {
+    background: rgba(9, 9, 11, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
