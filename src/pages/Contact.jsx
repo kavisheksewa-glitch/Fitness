@@ -18,7 +18,7 @@ export default function Contact() {
     inquiryType: 'VIP Membership Consultation',
     message: '',
   });
-
+  const [errorMsg, setErrorMsg] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -27,15 +27,32 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+  setErrorMsg("");
 
-    setTimeout(() => {
-      setIsSubmitting(false);
+  try {
+    const response = await fetch("http://localhost:5001/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
       setIsSubmitted(true);
-    }, 1500);
-  };
+    } else {
+      setErrorMsg(data.message || "Something went wrong.");
+    }
+  } catch (error) {
+    console.error("Submit error:", error);
+    setErrorMsg("Server connection failed. Please try again later.");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   const resetForm = () => {
     setFormData({

@@ -12,11 +12,11 @@ export default function Footer() {
           {/* Brand Info */}
           <div className="md:col-span-4 space-y-4 font-sans">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-600 to-yellow-600 flex items-center justify-center text-white font-serif font-bold text-lg shadow-sm">
+              {/* <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-600 to-yellow-600 flex items-center justify-center text-white font-serif font-bold text-lg shadow-sm">
                 A
-              </div>
+              </div> */}
               <span className="font-serif text-xl font-black text-slate-900 tracking-wider">
-                MUSCLE EMPIRE<span className="text-amber-700">GYM</span>
+                MUSCLE <div><span className="text-amber-700">EMPIRE GYM</span></div>
               </span>
             </div>
 

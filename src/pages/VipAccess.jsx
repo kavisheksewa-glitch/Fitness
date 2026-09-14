@@ -11,6 +11,8 @@ import {
 } from 'lucide-react';
 
 export default function VipAccess() {
+  const [errorMsg, setErrorMsg] = useState("");
+const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [activeHub, setActiveHub] = useState('new-york');
   const [formData, setFormData] = useState({
@@ -49,11 +51,32 @@ export default function VipAccess() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitted(true);
-  };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  setIsSubmitting(true);
+  setErrorMsg("");
 
+  try {
+    const response = await fetch("http://localhost:5001/api/vip-access", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      setIsSubmitted(true);
+    } else {
+      setErrorMsg(data.message || "Something went wrong.");
+    }
+  } catch (error) {
+    console.error("Submit error:", error);
+    setErrorMsg("Server connection failed. Please try again later.");
+  } finally {
+    setIsSubmitting(false);
+  }
+};
   return (
     <div 
       className="relative min-h-screen text-stone-700 pb-20 px-4 md:px-8 lg:px-10 pt-6 overflow-hidden"
@@ -78,7 +101,7 @@ export default function VipAccess() {
               <span>Restricted Access Protocol</span>
             </div>
             <h1 className="font-serif text-3xl md:text-5xl font-extrabold tracking-tight text-stone-900 uppercase">
-              MUSCLE EMPIRE <span className="text-amber-600">VIP ACCESS</span>
+              MUSCLE EMPIRE <span className="text-amber-600">Location ACCESS</span>
             </h1>
             <p className="text-xs md:text-sm text-stone-600 max-w-xl mx-auto font-normal leading-relaxed">
               Unlock private biometric laboratory floors, custom clinical nutrition regimes, and dedicated 1-on-1 master coaching across our global hubs.
@@ -194,7 +217,7 @@ export default function VipAccess() {
                     <span className="text-amber-600 text-[10px] font-mono uppercase tracking-[0.2em] font-bold block">
                       Vetting Protocol
                     </span>
-                    <h3 className="font-serif text-xl md:text-2xl font-bold text-stone-900">Request VIP Credentials</h3>
+                    <h3 className="font-serif text-xl md:text-2xl font-bold text-stone-900">Request for Credentials</h3>
                     <p className="text-xs text-stone-600 font-sans">Complete the vetting form below to initiate facility access authorization.</p>
                   </div>
 

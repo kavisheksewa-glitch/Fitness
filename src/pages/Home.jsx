@@ -307,7 +307,7 @@ export default function Home() {
                     to="/workouts"
                     className="w-full flex items-center justify-center gap-2 bg-stone-50 hover:bg-gradient-to-r hover:from-amber-600 hover:to-yellow-600 hover:text-white border border-amber-200 text-stone-800 font-bold text-xs uppercase tracking-[0.15em] py-3 rounded-xl transition-all shadow-sm"
                   >
-                    <span>Access Protocol</span>
+                    <span>For Details</span>
                     <ChevronRight className="w-4 h-4" />
                   </Link>
                 </div>
