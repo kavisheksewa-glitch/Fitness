@@ -9,7 +9,7 @@ import {
   ShieldCheck, 
   Crown
 } from 'lucide-react';
-
+import API_BASE_URL from '../utils/api';
 export default function Contact() {
   const [formData, setFormData] = useState({
     fullName: '',
@@ -33,7 +33,7 @@ export default function Contact() {
   setErrorMsg("");
 
   try {
-    const response = await fetch("http://localhost:5001/api/contact", {
+    const response = await fetch(`${API_BASE_URL}/api/contact`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),

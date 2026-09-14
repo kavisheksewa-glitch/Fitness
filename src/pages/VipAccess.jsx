@@ -9,6 +9,7 @@ import {
   Navigation,
   Globe
 } from 'lucide-react';
+import API_BASE_URL from '../utils/api';
 
 export default function VipAccess() {
   const [errorMsg, setErrorMsg] = useState("");
@@ -57,7 +58,7 @@ const [isSubmitting, setIsSubmitting] = useState(false);
   setErrorMsg("");
 
   try {
-    const response = await fetch("http://localhost:5001/api/vip-access", {
+    const response = await fetch(`${API_BASE_URL}/api/vip-access`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),
