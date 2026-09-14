@@ -16,3 +16,4 @@ fetch(`${BASE_URL}${endpoint}`, {
 .then(response => response.json())
 .then(data => console.log(data))
 .catch(error => console.error('Error:', error));
+export default API_BASE_URL;
