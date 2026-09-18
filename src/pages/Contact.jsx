@@ -82,45 +82,45 @@ export default function Contact() {
       <div className="max-w-[1400px] mx-auto space-y-10 relative z-10">
         
         {/* ================= PAGE HEADER ================= */}
-        <div className="text-center max-w-3xl mx-auto space-y-3 font-sans">
-          <div className="inline-flex items-center gap-1.5 border border-amber-300/80 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full shadow-sm">
-            <Crown className="w-3.5 h-3.5 text-amber-600" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-amber-800">
+        <div className="text-center max-w-3xl lg:max-w-4xl mx-auto space-y-3 font-sans">
+          <div className="inline-flex items-center gap-1.5 border border-amber-300/80 bg-white/90 backdrop-blur-md px-4 py-1.5 lg:px-5 lg:py-2 rounded-full shadow-sm">
+            <Crown className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-amber-600" />
+            <span className="text-[10px] lg:text-xs font-bold uppercase tracking-[0.2em] text-amber-800">
               Private Concierge & Access
             </span>
           </div>
 
-          <h1 className="text-3xl md:text-5xl font-extrabold text-stone-900 tracking-tight font-serif uppercase">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-stone-900 tracking-tight font-serif uppercase">
             DIRECT COMMUNICATIONS
           </h1>
 
-          <p className="text-stone-600 text-xs md:text-sm font-normal leading-relaxed max-w-2xl mx-auto">
+          <p className="text-stone-600 text-xs md:text-sm lg:text-base font-normal leading-relaxed max-w-2xl lg:max-w-3xl mx-auto">
             Schedule a private biological assessment, request a private coaching consultation, or inquire about membership availability in our ultra-exclusive facility.
           </p>
         </div>
 
         {/* ================= MAIN CONTENT GRID ================= */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start font-sans">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start font-sans">
           
           {/* LEFT COLUMN: STUDIO INFO & CONCIERGE CHANNELS */}
           <div className="lg:col-span-5 space-y-6">
             
             {/* Direct Channels Card */}
-            <div className="bg-white/95 backdrop-blur-sm border border-amber-200/80 rounded-3xl p-6 md:p-8 space-y-6 shadow-sm">
-              <span className="text-amber-600 text-[10px] font-mono uppercase tracking-[0.2em] block font-bold">
+            <div className="bg-white/95 backdrop-blur-sm border border-amber-200/80 rounded-3xl p-6 md:p-8 lg:p-9 space-y-6 shadow-sm">
+              <span className="text-amber-600 text-[10px] lg:text-xs font-mono uppercase tracking-[0.2em] block font-bold">
                 Direct Channels
               </span>
 
-              <div className="space-y-5 text-xs">
+              <div className="space-y-5 lg:space-y-6 text-xs lg:text-sm">
                 
                 {/* Address */}
                 <div className="flex items-start gap-3.5">
-                  <div className="p-2.5 bg-amber-50 border border-amber-200 rounded-xl text-amber-700 shrink-0">
-                    <MapPin className="w-4 h-4" />
+                  <div className="p-2.5 lg:p-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-700 shrink-0">
+                    <MapPin className="w-4 h-4 lg:w-5 lg:h-5" />
                   </div>
                   <div className="space-y-1">
-                    <span className="text-stone-400 font-mono uppercase text-[9px] block font-bold tracking-widest">Headquarters & Facility</span>
-                    <p className="text-stone-800 font-medium text-xs leading-relaxed">
+                    <span className="text-stone-400 font-mono uppercase text-[9px] lg:text-[11px] block font-bold tracking-widest">Headquarters & Facility</span>
+                    <p className="text-stone-800 font-medium text-xs lg:text-sm leading-relaxed">
                       ATSEWA PVT.LTD <br />
                       740 Park Avenue, Executive Level 4 <br />
                       New York, NY 10021
@@ -130,26 +130,26 @@ export default function Contact() {
 
                 {/* Phone Line */}
                 <div className="flex items-start gap-3.5">
-                  <div className="p-2.5 bg-amber-50 border border-amber-200 rounded-xl text-amber-700 shrink-0">
-                    <Phone className="w-4 h-4" />
+                  <div className="p-2.5 lg:p-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-700 shrink-0">
+                    <Phone className="w-4 h-4 lg:w-5 lg:h-5" />
                   </div>
                   <div className="space-y-1">
-                    <span className="text-stone-400 font-mono uppercase text-[9px] block font-bold tracking-widest">VIP Desk & Concierge</span>
-                    <p className="text-amber-700 font-bold text-xs font-mono">
+                    <span className="text-stone-400 font-mono uppercase text-[9px] lg:text-[11px] block font-bold tracking-widest">VIP Desk & Concierge</span>
+                    <p className="text-amber-700 font-bold text-xs lg:text-sm font-mono">
                       +1 (800) 555-ATSEWA
                     </p>
-                    <span className="text-[10px] text-stone-500 block">Direct Line for Private Members</span>
+                    <span className="text-[10px] lg:text-xs text-stone-500 block">Direct Line for Private Members</span>
                   </div>
                 </div>
 
                 {/* Email */}
                 <div className="flex items-start gap-3.5">
-                  <div className="p-2.5 bg-amber-50 border border-amber-200 rounded-xl text-amber-700 shrink-0">
-                    <Mail className="w-4 h-4" />
+                  <div className="p-2.5 lg:p-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-700 shrink-0">
+                    <Mail className="w-4 h-4 lg:w-5 lg:h-5" />
                   </div>
                   <div className="space-y-1">
-                    <span className="text-stone-400 font-mono uppercase text-[9px] block font-bold tracking-widest">Encrypted Inquiries</span>
-                    <p className="text-stone-800 font-medium text-xs font-mono">
+                    <span className="text-stone-400 font-mono uppercase text-[9px] lg:text-[11px] block font-bold tracking-widest">Encrypted Inquiries</span>
+                    <p className="text-stone-800 font-medium text-xs lg:text-sm font-mono">
                       ATSEWA@Gmail.com
                     </p>
                   </div>
@@ -157,12 +157,12 @@ export default function Contact() {
 
                 {/* Hours */}
                 <div className="flex items-start gap-3.5">
-                  <div className="p-2.5 bg-amber-50 border border-amber-200 rounded-xl text-amber-700 shrink-0">
-                    <Clock className="w-4 h-4" />
+                  <div className="p-2.5 lg:p-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-700 shrink-0">
+                    <Clock className="w-4 h-4 lg:w-5 lg:h-5" />
                   </div>
                   <div className="space-y-1">
-                    <span className="text-stone-400 font-mono uppercase text-[9px] block font-bold tracking-widest">Operational Hours</span>
-                    <p className="text-stone-800 text-xs leading-relaxed font-mono">
+                    <span className="text-stone-400 font-mono uppercase text-[9px] lg:text-[11px] block font-bold tracking-widest">Operational Hours</span>
+                    <p className="text-stone-800 text-xs lg:text-sm leading-relaxed font-mono">
                       Mon – Sat: 05:00 AM – 11:00 PM <br />
                       Sunday: Private Member Access Only
                     </p>
@@ -173,12 +173,12 @@ export default function Contact() {
             </div>
 
             {/* Confidentiality Commitment Box */}
-            <div className="bg-amber-50/60 border border-amber-200/80 rounded-3xl p-6 space-y-2">
-              <div className="flex items-center gap-2 text-amber-700 font-bold text-xs uppercase tracking-wider font-mono">
-                <ShieldCheck className="w-4 h-4" />
+            <div className="bg-amber-50/60 border border-amber-200/80 rounded-3xl p-6 lg:p-7 space-y-2">
+              <div className="flex items-center gap-2 text-amber-700 font-bold text-xs lg:text-sm uppercase tracking-wider font-mono">
+                <ShieldCheck className="w-4 h-4 lg:w-5 lg:h-5" />
                 <span>Confidentiality Guarantee</span>
               </div>
-              <p className="text-xs text-stone-600 font-normal leading-relaxed">
+              <p className="text-xs lg:text-sm text-stone-600 font-normal leading-relaxed">
                 All client communications, health data, and athletic assessments are strictly governed by non-disclosure agreements. Your privacy is paramount.
               </p>
             </div>
@@ -186,58 +186,58 @@ export default function Contact() {
           </div>
 
           {/* RIGHT COLUMN: CONSULTATION FORM */}
-          <div className="lg:col-span-7 bg-white/95 backdrop-blur-sm border border-amber-200/80 rounded-3xl p-6 md:p-8 shadow-sm relative">
+          <div className="lg:col-span-7 bg-white/95 backdrop-blur-sm border border-amber-200/80 rounded-3xl p-6 md:p-8 lg:p-9 shadow-sm relative">
             
             {/* Form Title */}
             <div className="space-y-1.5 mb-6">
-              <span className="text-amber-600 text-[10px] font-mono uppercase tracking-[0.2em] font-bold block">
+              <span className="text-amber-600 text-[10px] lg:text-xs font-mono uppercase tracking-[0.2em] font-bold block">
                 VIP Application
               </span>
-              <h2 className="text-xl md:text-2xl font-bold text-stone-900 font-serif uppercase">
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-stone-900 font-serif uppercase">
                 REQUEST A PRIVATE CONSULTATION
               </h2>
-              <p className="text-xs text-stone-600">
+              <p className="text-xs lg:text-sm text-stone-600">
                 Fill out the required parameters below. Our concierge director will respond within two business hours.
               </p>
             </div>
 
             {isSubmitted ? (
               /* Submission Success State */
-              <div className="py-10 text-center space-y-4 bg-amber-50/80 border border-amber-200 rounded-2xl p-6">
-                <div className="w-12 h-12 bg-white border border-amber-200 rounded-full flex items-center justify-center mx-auto text-amber-700 shadow-sm">
-                  <CheckCircle2 className="w-6 h-6" />
+              <div className="py-10 text-center space-y-4 bg-amber-50/80 border border-amber-200 rounded-2xl p-6 lg:p-8">
+                <div className="w-12 h-12 lg:w-14 lg:h-14 bg-white border border-amber-200 rounded-full flex items-center justify-center mx-auto text-amber-700 shadow-sm">
+                  <CheckCircle2 className="w-6 h-6 lg:w-7 lg:h-7" />
                 </div>
 
                 <div className="space-y-1">
-                  <h3 className="text-lg font-bold text-stone-900 font-serif uppercase">
+                  <h3 className="text-lg lg:text-xl font-bold text-stone-900 font-serif uppercase">
                     INQUIRY TRANSMITTED SUCCESSFULLY
                   </h3>
-                  <p className="text-xs text-stone-600 max-w-md mx-auto leading-normal">
+                  <p className="text-xs lg:text-sm text-stone-600 max-w-md lg:max-w-lg mx-auto leading-normal">
                     Thank you, <strong className="text-amber-700">{formData.fullName}</strong>. Your consultation request has been routed to our Senior Performance Director.
                   </p>
                 </div>
 
-                <div className="p-3.5 bg-white border border-amber-200 rounded-xl max-w-sm mx-auto text-left text-xs space-y-1 text-stone-700 shadow-sm font-mono">
-                  <div className="text-amber-700 font-bold uppercase text-[10px]">Reference Summary:</div>
+                <div className="p-3.5 lg:p-4 bg-white border border-amber-200 rounded-xl max-w-sm lg:max-w-md mx-auto text-left text-xs lg:text-sm space-y-1 text-stone-700 shadow-sm font-mono">
+                  <div className="text-amber-700 font-bold uppercase text-[10px] lg:text-xs">Reference Summary:</div>
                   <div>Inquiry Type: {formData.inquiryType}</div>
                   <div>Direct Phone: {formData.phone || 'N/A'}</div>
                 </div>
 
                 <button
                   onClick={resetForm}
-                  className="inline-flex items-center gap-2 border border-amber-200 bg-white hover:bg-gradient-to-r hover:from-amber-600 hover:to-yellow-600 hover:text-white text-amber-700 font-bold text-xs uppercase tracking-wider py-3 px-6 rounded-xl transition-all shadow-sm cursor-pointer"
+                  className="inline-flex items-center gap-2 border border-amber-200 bg-white hover:bg-gradient-to-r hover:from-amber-600 hover:to-yellow-600 hover:text-white text-amber-700 font-bold text-xs lg:text-sm uppercase tracking-wider py-3 px-6 lg:py-3.5 lg:px-7 rounded-xl transition-all shadow-sm cursor-pointer"
                 >
                   <span>Submit Another Inquiry</span>
                 </button>
               </div>
             ) : (
               /* Active Form */
-              <form onSubmit={handleSubmit} className="space-y-4 font-mono text-xs">
+              <form onSubmit={handleSubmit} className="space-y-4 lg:space-y-5 font-mono text-xs lg:text-sm">
                 
                 {/* Full Name & Email Row */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5">
                   <div className="space-y-1">
-                    <label className="block text-[10px] uppercase tracking-wider text-stone-500 font-bold">
+                    <label className="block text-[10px] lg:text-xs uppercase tracking-wider text-stone-500 font-bold">
                       Full Legal Name *
                     </label>
                     <input
@@ -247,12 +247,12 @@ export default function Contact() {
                       value={formData.fullName}
                       onChange={handleChange}
                       placeholder="e.g. Jonathan Sterling"
-                      className="w-full bg-stone-50/80 border border-amber-200 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-600 focus:bg-white transition-colors"
+                      className="w-full bg-stone-50/80 border border-amber-200 rounded-xl px-3.5 py-2.5 lg:px-4 lg:py-3 text-xs lg:text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-600 focus:bg-white transition-colors"
                     />
                   </div>
 
                   <div className="space-y-1">
-                    <label className="block text-[10px] uppercase tracking-wider text-stone-500 font-bold">
+                    <label className="block text-[10px] lg:text-xs uppercase tracking-wider text-stone-500 font-bold">
                       Email Address *
                     </label>
                     <input
@@ -262,15 +262,15 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="jonathan@domain.com"
-                      className="w-full bg-stone-50/80 border border-amber-200 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-600 focus:bg-white transition-colors"
+                      className="w-full bg-stone-50/80 border border-amber-200 rounded-xl px-3.5 py-2.5 lg:px-4 lg:py-3 text-xs lg:text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-600 focus:bg-white transition-colors"
                     />
                   </div>
                 </div>
 
                 {/* Phone & Inquiry Type Row */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5">
                   <div className="space-y-1">
-                    <label className="block text-[10px] uppercase tracking-wider text-stone-500 font-bold">
+                    <label className="block text-[10px] lg:text-xs uppercase tracking-wider text-stone-500 font-bold">
                       Phone Number *
                     </label>
                     <input
@@ -280,19 +280,19 @@ export default function Contact() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+1 (555) 000-0000"
-                      className="w-full bg-stone-50/80 border border-amber-200 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-600 focus:bg-white transition-colors"
+                      className="w-full bg-stone-50/80 border border-amber-200 rounded-xl px-3.5 py-2.5 lg:px-4 lg:py-3 text-xs lg:text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-600 focus:bg-white transition-colors"
                     />
                   </div>
 
                   <div className="space-y-1">
-                    <label className="block text-[10px] uppercase tracking-wider text-stone-500 font-bold">
+                    <label className="block text-[10px] lg:text-xs uppercase tracking-wider text-stone-500 font-bold">
                       Inquiry Category *
                     </label>
                     <select
                       name="inquiryType"
                       value={formData.inquiryType}
                       onChange={handleChange}
-                      className="w-full bg-stone-50/80 border border-amber-200 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 focus:outline-none focus:border-amber-600 focus:bg-white transition-colors cursor-pointer"
+                      className="w-full bg-stone-50/80 border border-amber-200 rounded-xl px-3.5 py-2.5 lg:px-4 lg:py-3 text-xs lg:text-sm text-stone-900 focus:outline-none focus:border-amber-600 focus:bg-white transition-colors cursor-pointer"
                     >
                       <option>VIP Membership Consultation</option>
                       <option>1-on-1 Master Coaching</option>
@@ -305,7 +305,7 @@ export default function Contact() {
 
                 {/* Message Field */}
                 <div className="space-y-1">
-                  <label className="block text-[10px] uppercase tracking-wider text-stone-500 font-bold">
+                  <label className="block text-[10px] lg:text-xs uppercase tracking-wider text-stone-500 font-bold">
                     Primary Fitness Objectives & Notes
                   </label>
                   <textarea
@@ -314,7 +314,7 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Describe your current training baseline, timeline, and primary targets..."
-                    className="w-full bg-stone-50/80 border border-amber-200 rounded-xl px-3.5 py-2.5 text-xs text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-600 focus:bg-white transition-colors resize-none"
+                    className="w-full bg-stone-50/80 border border-amber-200 rounded-xl px-3.5 py-2.5 lg:px-4 lg:py-3 text-xs lg:text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-600 focus:bg-white transition-colors resize-none"
                   />
                 </div>
 
@@ -322,13 +322,13 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-700 hover:to-yellow-700 text-white font-bold text-xs uppercase tracking-[0.2em] py-3.5 rounded-xl transition-all duration-300 shadow-md shadow-amber-600/25 disabled:opacity-50 cursor-pointer"
+                  className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-700 hover:to-yellow-700 text-white font-bold text-xs lg:text-sm uppercase tracking-[0.2em] py-3.5 lg:py-4 rounded-xl transition-all duration-300 shadow-md shadow-amber-600/25 disabled:opacity-50 cursor-pointer"
                 >
                   {isSubmitting ? (
                     <span className="animate-pulse">Transmitting Application...</span>
                   ) : (
                     <>
-                      <Send className="w-4 h-4" />
+                      <Send className="w-4 h-4 lg:w-5 lg:h-5" />
                       <span>Transmit Consultation Request</span>
                     </>
                   )}
