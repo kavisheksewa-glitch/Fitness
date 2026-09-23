@@ -133,9 +133,9 @@ export default function Workouts() {
             </span>
           </div>
 
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-stone-900 tracking-tight font-serif uppercase">
-            TRAINING PROTOCOLS
-          </h1>
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight font-serif uppercase bg-gradient-to-r from-stone-900 via-stone-800 to-amber-800 bg-clip-text text-transparent">
+  TRAINING PROTOCOLS
+</h1>
 
           {/* Desktop word spacing fixed only */}
           <p className="text-stone-600 text-xs md:text-sm lg:text-base font-normal leading-relaxed max-w-2xl lg:max-w-3xl mx-auto tracking-normal lg:[word-spacing:0.12em]">

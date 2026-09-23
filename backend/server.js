@@ -75,5 +75,37 @@ app.post("/api/vip-access", async (req, res) => {
   }
 });
 
+// ==================== TRAINER BOOKING FORM ====================
+app.post("/api/trainer-booking", async (req, res) => {
+  try {
+    const { trainerId, trainerName, fullName, email, objective } = req.body;
+
+    if (!fullName || !email || !trainerName) {
+      return res.status(400).json({ success: false, message: "Required fields are missing" });
+    }
+
+    const html = `
+      <div style="font-family: Arial, sans-serif; max-width: 500px;">
+        <h2>New Private Session Request — Muscle Empire</h2>
+        <p><b>Trainer:</b> ${trainerName}</p>
+        <p><b>Client Name:</b> ${fullName}</p>
+        <p><b>Email:</b> ${email}</p>
+        <p><b>Primary Objective:</b> ${objective}</p>
+      </div>
+    `;
+
+    await sendEmail({
+      subject: `New Booking Request: ${trainerName}`,
+      html,
+      replyTo: email,
+    });
+
+    res.status(200).json({ success: true, message: "Your booking request has been received." });
+  } catch (error) {
+    console.error("Trainer booking form error:", error);
+    res.status(500).json({ success: false, message: "Failed to send. Please try again later." });
+  }
+});
+
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));

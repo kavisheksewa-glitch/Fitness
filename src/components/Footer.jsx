@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, ArrowUpRight } from 'lucide-react';
+import { ShieldCheck, MapPin, Phone } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -20,13 +20,6 @@ export default function Footer() {
             <p className="text-xs lg:text-sm text-slate-700 font-normal leading-relaxed">
               An elite high-performance athletic institution providing bespoke mechanical training routines, precision macro-nutrient timing, and commercial-grade physical apparatus.
             </p>
-            {/* <div className="flex flex-wrap items-center gap-3 lg:gap-4 text-xs lg:text-sm">
-              <span>Park Ave, NY</span>
-              <span>•</span>
-              <span>Mayfair, London</span>
-              <span>•</span>
-              <span>Ginza, Tokyo</span>
-            </div> */}
 
             <div className="flex items-center gap-2 text-xs lg:text-sm font-semibold text-amber-800 pt-2 font-mono">
               <ShieldCheck className="w-4 h-4 lg:w-5 lg:h-5 text-amber-600" />
@@ -60,48 +53,36 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Newsletter / Direct Inquiry */}
+          {/* Contact Details */}
           <div className="w-full md:w-[28%] lg:w-[24%] space-y-3 font-sans shrink-0">
             <span className="text-slate-900 font-bold uppercase tracking-widest block text-[10px] lg:text-xs text-amber-800 font-mono">
-              Private Dispatch
+              {/* Private Dispatch */}
+              Contact
             </span>
-            
-            <p className="text-xs lg:text-sm text-slate-700 font-normal">
-              Receive quarterly physiological performance papers and biomechanical research updates.
-            </p>
 
-            <div className="flex items-center gap-2 pt-1 font-mono">
-              <input
-                type="email"
-                placeholder="executive@domain.com"
-                className="bg-white border border-amber-200 rounded-xl px-3.5 py-2.5 lg:py-3 text-xs lg:text-sm text-slate-900 placeholder-slate-500 focus:outline-none focus:border-amber-500 w-full shadow-sm"
-              />
-              <button
-                className="bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-500 hover:to-yellow-500 text-white p-2.5 lg:p-3 rounded-xl transition-colors shrink-0 shadow-md shadow-amber-600/20"
-                aria-label="Subscribe"
-              >
-                <ArrowUpRight className="w-4 h-4 lg:w-5 lg:h-5" />
-              </button>
-              
-            </div>
-             <div className="flex flex-wrap items-center gap-3 lg:gap-4 text-xs lg:text-sm">
-              <span>Park Ave, NY</span>
-              <span>•</span>
-              <span>Mayfair, London</span>
-              <span>•</span>
-              <span>Ginza, Tokyo</span>
+            {/* <p className="text-xs lg:text-sm text-slate-700 font-normal">
+              Receive quarterly physiological performance papers and biomechanical research updates.
+            </p> */}
+
+            <div className="pt-0 space-y-1.5 text-xs lg:text-sm text-slate-700 font-mono">
+              <div className="flex items-center gap-1.5">
+                <MapPin className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                <span>9b The Broadway, Woodford Green, Essex IG8 0HL</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <Phone className="w-3.5 h-3.5 text-amber-600 shrink-0" />
+                <span>+44 20 8500 0000</span>
+              </div>
             </div>
           </div>
 
         </div>
-        
 
         {/* Bottom Credits */}
-        <div className="border-t border-amber-200/60 pt-2 pb-0 -mb-4 flex flex-col sm:flex-row items-center justify-center text-[11px] lg:text-sm font-mono font-medium text-slate-600 gap-4">
-  <div>
-    © {new Date().getFullYear()} ATSEWA GmbH All Rights Reserved.
-  </div>
-
+        <div className="border-t border-amber-200/60 pt-4 pb-0 -mb-4 flex flex-col sm:flex-row items-center justify-center text-[11px] lg:text-sm font-mono font-medium text-slate-600 gap-4">
+          <div>
+            © {new Date().getFullYear()} ATSEWA GmbH All Rights Reserved.
+          </div>
         </div>
 
       </div>

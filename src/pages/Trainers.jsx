@@ -1,18 +1,73 @@
 import React, { useState } from 'react';
 import { trainersData } from '../data/trainersData';
 import { Sparkles, CheckCircle2, Quote, Calendar, X, Send } from 'lucide-react';
+import API_BASE_URL from '../utils/api';
 
 export default function Trainers() {
   const [bookingTrainer, setBookingTrainer] = useState(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    objective: 'Hypertrophy & Muscle Growth'
+  });
 
-  const handleBookSubmit = (e) => {
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const openBooking = (trainer) => {
+    setBookingTrainer(trainer);
+    setFormSubmitted(false);
+    setErrorMsg("");
+    setFormData({
+      fullName: '',
+      email: '',
+      objective: 'Hypertrophy & Muscle Growth'
+    });
+  };
+
+  const closeBooking = () => {
+    setBookingTrainer(null);
+    setFormSubmitted(false);
+    setErrorMsg("");
+  };
+
+  const handleBookSubmit = async (e) => {
     e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => {
-      setFormSubmitted(false);
-      setBookingTrainer(null);
-    }, 2500);
+    setIsSubmitting(true);
+    setErrorMsg("");
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/trainer-booking`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          trainerId: bookingTrainer.id,
+          trainerName: bookingTrainer.name,
+          ...formData
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setFormSubmitted(true);
+        setTimeout(() => {
+          setBookingTrainer(null);
+          setFormSubmitted(false);
+        }, 2500);
+      } else {
+        setErrorMsg(data.message || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Booking submit error:", error);
+      setErrorMsg("Server connection failed. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -39,7 +94,7 @@ export default function Trainers() {
             </span>
           </div>
 
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-stone-900 tracking-tight font-serif uppercase">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight font-serif uppercase bg-gradient-to-r from-stone-900 via-stone-800 to-amber-800 bg-clip-text text-transparent">
             WORLD-CLASS FACULTY
           </h1>
 
@@ -132,7 +187,7 @@ export default function Trainers() {
               {/* Action CTA */}
               <div className="p-5 md:p-6 lg:p-7 pt-4">
                 <button
-                  onClick={() => setBookingTrainer(trainer)}
+                  onClick={() => openBooking(trainer)}
                   className="w-full flex items-center justify-center gap-2 border border-amber-200 bg-white/80 hover:bg-gradient-to-r hover:from-amber-600 hover:to-yellow-600 hover:text-white hover:border-amber-600 text-amber-700 font-bold text-xs lg:text-sm uppercase tracking-[0.2em] py-3 lg:py-3.5 rounded-xl transition-all duration-300 shadow-sm cursor-pointer"
                 >
                   <Calendar className="w-4 h-4 lg:w-5 lg:h-5" />
@@ -149,7 +204,7 @@ export default function Trainers() {
             <div className="bg-white/95 backdrop-blur-sm border border-amber-200/80 rounded-3xl max-w-lg lg:max-w-xl w-full p-6 lg:p-8 space-y-5 relative shadow-xl">
               
               <button
-                onClick={() => setBookingTrainer(null)}
+                onClick={closeBooking}
                 className="absolute top-4 right-4 text-stone-400 hover:text-stone-900 p-2 lg:p-2.5 rounded-full border border-amber-200 hover:border-amber-400 bg-stone-50 transition-colors cursor-pointer"
               >
                 <X className="w-4 h-4 lg:w-5 lg:h-5" />
@@ -174,13 +229,23 @@ export default function Trainers() {
                 </div>
               ) : (
                 <form onSubmit={handleBookSubmit} className="space-y-3.5 lg:space-y-4 text-xs lg:text-sm font-mono">
+                  
+                  {errorMsg && (
+                    <div className="bg-red-50 border border-red-200 text-red-700 text-xs lg:text-sm rounded-xl px-3.5 py-2.5 lg:px-4 lg:py-3">
+                      {errorMsg}
+                    </div>
+                  )}
+
                   <div>
                     <label className="block text-stone-500 uppercase tracking-wider text-[10px] lg:text-xs mb-1 font-bold">
                       Full Name *
                     </label>
                     <input
                       type="text"
+                      name="fullName"
                       required
+                      value={formData.fullName}
+                      onChange={handleChange}
                       placeholder="e.g. Alexander Vance"
                       className="w-full bg-stone-50/80 border border-amber-200 rounded-xl px-3.5 py-2.5 lg:px-4 lg:py-3 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-600 focus:bg-white transition-colors"
                     />
@@ -192,7 +257,10 @@ export default function Trainers() {
                     </label>
                     <input
                       type="email"
+                      name="email"
                       required
+                      value={formData.email}
+                      onChange={handleChange}
                       placeholder="alexander@domain.com"
                       className="w-full bg-stone-50/80 border border-amber-200 rounded-xl px-3.5 py-2.5 lg:px-4 lg:py-3 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-600 focus:bg-white transition-colors"
                     />
@@ -202,7 +270,12 @@ export default function Trainers() {
                     <label className="block text-stone-500 uppercase tracking-wider text-[10px] lg:text-xs mb-1 font-bold">
                       Primary Objective *
                     </label>
-                    <select className="w-full bg-stone-50/80 border border-amber-200 rounded-xl px-3.5 py-2.5 lg:px-4 lg:py-3 text-stone-900 focus:outline-none focus:border-amber-600 focus:bg-white transition-colors">
+                    <select
+                      name="objective"
+                      value={formData.objective}
+                      onChange={handleChange}
+                      className="w-full bg-stone-50/80 border border-amber-200 rounded-xl px-3.5 py-2.5 lg:px-4 lg:py-3 text-stone-900 focus:outline-none focus:border-amber-600 focus:bg-white transition-colors"
+                    >
                       <option>Hypertrophy & Muscle Growth</option>
                       <option>Body Recomposition & Fat Loss</option>
                       <option>Rehabilitation & Biomechanics</option>
@@ -212,10 +285,11 @@ export default function Trainers() {
 
                   <button
                     type="submit"
-                    className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-700 hover:to-yellow-700 text-white font-bold text-xs lg:text-sm uppercase tracking-[0.2em] py-3.5 lg:py-4 rounded-xl transition-all shadow-md shadow-amber-600/25 cursor-pointer"
+                    disabled={isSubmitting}
+                    className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-700 hover:to-yellow-700 disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold text-xs lg:text-sm uppercase tracking-[0.2em] py-3.5 lg:py-4 rounded-xl transition-all shadow-md shadow-amber-600/25 cursor-pointer"
                   >
                     <Send className="w-4 h-4 lg:w-5 lg:h-5" />
-                    <span>Confirm Request</span>
+                    <span>{isSubmitting ? "Sending..." : "Confirm Request"}</span>
                   </button>
                 </form>
               )}

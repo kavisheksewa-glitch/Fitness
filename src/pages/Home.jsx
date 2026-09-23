@@ -61,7 +61,7 @@ export default function Home() {
 
   return (
     <div
-      className="min-h-screen text-stone-900 pb-20 px-4 md:px-8 lg:px-10 pt-6"
+      className="min-h-screen text-stone-900 pb-10 px-4 md:px-8 lg:px-10 pt-6"
       style={{
         fontFamily: "Georgia, 'Times New Roman', Times, serif",
         backgroundColor: '#F7F5F0',
@@ -295,9 +295,9 @@ export default function Home() {
         </section>
 
         {/* ================= PROGRAM FILTER SECTION ================= */}
-        <section className="space-y-6 pt-6">
+        <section className="space-y-6 pt-0">
 
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 font-sans">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 font-sans ">
 
             <div className="space-y-1">
 
@@ -421,7 +421,7 @@ export default function Home() {
                 </div>
 
                 {/* Action Link */}
-                <div className="p-6 lg:p-7 pt-0 font-mono">
+                <div className="p-6 lg:p-7 pt-4 font-mono">
 
                   <Link
                     to="/workouts"
@@ -443,7 +443,7 @@ export default function Home() {
         </section>
 
         {/* ================= VIP COACHING BANNER ================= */}
-        <section className="pt-6">
+        <section className="pt-0">
 
           <div className="rounded-3xl bg-stone-900 text-white p-8 md:p-12 lg:p-14 overflow-hidden shadow-xl border border-amber-500/30 relative">
 

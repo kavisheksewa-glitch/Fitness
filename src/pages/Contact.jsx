@@ -90,9 +90,9 @@ export default function Contact() {
             </span>
           </div>
 
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-stone-900 tracking-tight font-serif uppercase">
-            DIRECT COMMUNICATIONS
-          </h1>
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight font-serif uppercase bg-gradient-to-r from-stone-900 via-stone-800 to-amber-800 bg-clip-text text-transparent">
+  DIRECT COMMUNICATIONS
+</h1>
 
           <p className="text-stone-600 text-xs md:text-sm lg:text-base font-normal leading-relaxed max-w-2xl lg:max-w-3xl mx-auto">
             Schedule a private biological assessment, request a private coaching consultation, or inquire about membership availability in our ultra-exclusive facility.

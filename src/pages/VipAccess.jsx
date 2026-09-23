@@ -13,9 +13,9 @@ import API_BASE_URL from '../utils/api';
 
 export default function VipAccess() {
   const [errorMsg, setErrorMsg] = useState("");
-const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [activeHub, setActiveHub] = useState('new-york');
+  const [activeHub, setActiveHub] = useState('woodford-green');
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -25,26 +25,12 @@ const [isSubmitting, setIsSubmitting] = useState(false);
   });
 
   const hubs = {
-    'new-york': {
-      city: 'New York — Park Avenue',
-      address: '740 Park Avenue, Penthouse Level, NY 10021',
-      phone: '+1 (212) 555-0199',
-      mapSrc: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=1200&q=80',
-      coordinates: '40.7682° N, 73.9626° W'
-    },
-    'london': {
-      city: 'London — Mayfair',
-      address: '45 Berkeley Square, Mayfair, London W1J 5AS',
-      phone: '+44 20 7946 0912',
+    'woodford-green': {
+      city: 'Woodford Green — Essex',
+      address: '9b The Broadway, Woodford Green, Essex IG8 0HL, UK',
+      phone: '+44 20 8500 0000',
       mapSrc: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1200&q=80',
-      coordinates: '51.5074° N, 0.1428° W'
-    },
-    'tokyo': {
-      city: 'Tokyo — Ginza',
-      address: '6-10-1 Ginza, Chuo-ku, Tokyo 104-0061',
-      phone: '+81 3 5550 0192',
-      mapSrc: 'https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1200&q=80',
-      coordinates: '35.6762° N, 139.7651° E'
+      coordinates: '51.6086° N, 0.0290° E'
     }
   };
 
@@ -53,31 +39,32 @@ const [isSubmitting, setIsSubmitting] = useState(false);
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  setIsSubmitting(true);
-  setErrorMsg("");
+    e.preventDefault();
+    setIsSubmitting(true);
+    setErrorMsg("");
 
-  try {
-    const response = await fetch(`${API_BASE_URL}/api/vip-access`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/vip-access`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    if (response.ok) {
-      setIsSubmitted(true);
-    } else {
-      setErrorMsg(data.message || "Something went wrong.");
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        setErrorMsg(data.message || "Something went wrong.");
+      }
+    } catch (error) {
+      console.error("Submit error:", error);
+      setErrorMsg("Server connection failed. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
     }
-  } catch (error) {
-    console.error("Submit error:", error);
-    setErrorMsg("Server connection failed. Please try again later.");
-  } finally {
-    setIsSubmitting(false);
-  }
-};
+  };
+
   return (
     <div 
       className="relative min-h-screen text-stone-700 pb-20 px-4 md:px-8 lg:px-10 pt-6 overflow-hidden"
@@ -101,7 +88,7 @@ const [isSubmitting, setIsSubmitting] = useState(false);
               <Crown className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-amber-600" />
               <span>Restricted Access Protocol</span>
             </div>
-            <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-stone-900 uppercase">
+            <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl font-semibold tracking-tight uppercase bg-gradient-to-r from-stone-900 via-stone-800 to-amber-800 bg-clip-text text-transparent">
               MUSCLE EMPIRE <span className="text-amber-600">Location ACCESS</span>
             </h1>
             <p className="text-xs md:text-sm lg:text-base text-stone-600 max-w-xl lg:max-w-2xl mx-auto font-normal leading-relaxed">
@@ -114,36 +101,19 @@ const [isSubmitting, setIsSubmitting] = useState(false);
         <section className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
             
-            {/* Left Column: Global Locations & Interactive Map */}
+            {/* Left Column: Location & Details */}
             <div className="lg:col-span-6 space-y-6">
               
               <div className="space-y-2">
                 <span className="text-amber-600 text-[10px] lg:text-xs font-mono font-bold uppercase tracking-[0.2em] block">
-                  Flagship Facilities
+                  Flagship Facility
                 </span>
                 <h2 className="font-serif text-2xl md:text-3xl lg:text-4xl font-bold text-stone-900">
-                  Private Training Sanctuaries
+                  Private Training Sanctuary
                 </h2>
                 <p className="text-xs lg:text-sm text-stone-600 leading-relaxed font-sans">
-                  Select a global hub below to inspect secure coordinates, facility layout, and direct secure communication channels.
+                  Inspect our secure coordinates, facility layout, and direct secure communication channel below.
                 </p>
-              </div>
-
-              {/* Hub Selector Tabs */}
-              <div className="flex flex-wrap gap-2.5 lg:gap-3">
-                {Object.keys(hubs).map((key) => (
-                  <button
-                    key={key}
-                    onClick={() => setActiveHub(key)}
-                    className={`px-5 py-2.5 lg:px-6 lg:py-3 rounded-xl text-xs lg:text-sm font-mono font-bold uppercase tracking-wider transition-all cursor-pointer shadow-sm ${
-                      activeHub === key
-                        ? 'bg-gradient-to-r from-amber-600 to-yellow-600 text-white shadow-amber-600/20 border border-amber-600'
-                        : 'bg-white/95 border border-amber-200 text-stone-600 hover:border-amber-400 hover:bg-amber-50/50'
-                    }`}
-                  >
-                    {key.replace('-', ' ')}
-                  </button>
-                ))}
               </div>
 
               {/* Selected Hub Map & Details Card */}
