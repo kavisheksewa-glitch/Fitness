@@ -2,6 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, MapPin, Phone } from 'lucide-react';
 
+// Address used for the Google Maps link (click on address opens this location)
+const ADDRESS = '9b The Broadway, Woodford Green, Essex IG8 0HL, UK';
+const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`;
+
 export default function Footer() {
   return (
     <footer className="bg-slate-100 border-t border-amber-200/80 text-slate-700 pt-16 pb-6 px-6 sm:px-10 lg:px-16 xl:px-24">
@@ -65,14 +69,29 @@ export default function Footer() {
             </p> */}
 
             <div className="pt-0 space-y-1.5 text-xs lg:text-sm text-slate-700 font-mono">
-              <div className="flex items-center gap-1.5">
+
+              {/* Address (opens Google Maps) */}
+              <a
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open address in Google Maps"
+                className="flex items-center gap-1.5 hover:text-amber-700 hover:underline transition-colors cursor-pointer"
+              >
                 <MapPin className="w-3.5 h-3.5 text-amber-600 shrink-0" />
                 <span>9b The Broadway, Woodford Green, Essex IG8 0HL</span>
-              </div>
-              <div className="flex items-center gap-1.5">
+              </a>
+
+              {/* Phone (opens dialer) */}
+              <a
+                href="tel:+442085000000"
+                aria-label="Call us"
+                className="flex items-center gap-1.5 hover:text-amber-700 hover:underline transition-colors cursor-pointer"
+              >
                 <Phone className="w-3.5 h-3.5 text-amber-600 shrink-0" />
                 <span>+44 20 8500 0000</span>
-              </div>
+              </a>
+
             </div>
           </div>
 

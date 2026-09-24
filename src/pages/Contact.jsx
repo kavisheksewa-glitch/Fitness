@@ -10,6 +10,11 @@ import {
   Crown
 } from 'lucide-react';
 import API_BASE_URL from '../utils/api';
+
+// Address used for the Google Maps link (click on address opens this location)
+const ADDRESS = '9b The Broadway, Woodford Green, Essex IG8 0HL, UK';
+const MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ADDRESS)}`;
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     fullName: '',
@@ -27,32 +32,32 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
- const handleSubmit = async (e) => {
-  e.preventDefault();
-  setIsSubmitting(true);
-  setErrorMsg("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setErrorMsg("");
 
-  try {
-    const response = await fetch(`${API_BASE_URL}/api/contact`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    if (response.ok) {
-      setIsSubmitted(true);
-    } else {
-      setErrorMsg(data.message || "Something went wrong.");
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        setErrorMsg(data.message || "Something went wrong.");
+      }
+    } catch (error) {
+      console.error("Submit error:", error);
+      setErrorMsg("Server connection failed. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
     }
-  } catch (error) {
-    console.error("Submit error:", error);
-    setErrorMsg("Server connection failed. Please try again later.");
-  } finally {
-    setIsSubmitting(false);
-  }
-};
+  };
 
   const resetForm = () => {
     setFormData({
@@ -113,45 +118,71 @@ export default function Contact() {
 
               <div className="space-y-5 lg:space-y-6 text-xs lg:text-sm">
                 
-                {/* Address */}
+                {/* Address (opens Google Maps) */}
                 <div className="flex items-start gap-3.5">
-                  <div className="p-2.5 lg:p-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-700 shrink-0">
+                  <a
+                    href={MAPS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open address in Google Maps"
+                    className="p-2.5 lg:p-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-700 shrink-0 hover:bg-amber-100 transition-colors"
+                  >
                     <MapPin className="w-4 h-4 lg:w-5 lg:h-5" />
-                  </div>
+                  </a>
                   <div className="space-y-1">
                     <span className="text-stone-400 font-mono uppercase text-[9px] lg:text-[11px] block font-bold tracking-widest">Headquarters & Facility</span>
-                    <p className="text-stone-800 font-medium text-xs lg:text-sm leading-relaxed">
+                    <a
+                      href={MAPS_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-stone-800 font-medium text-xs lg:text-sm leading-relaxed hover:text-amber-700 hover:underline transition-colors cursor-pointer"
+                    >
                       ATSEWA GmbH <br />
                       9b The Broadway, Woodford Green, <br />
-                      Essex IG8 0HL,U.K
-                    </p>
+                      Essex IG8 0HL, U.K
+                    </a>
+                    <span className="text-[10px] lg:text-xs text-stone-500 block">Click to open in Google Maps</span>
                   </div>
                 </div>
 
-                {/* Phone Line */}
+                {/* Phone Line (opens dialer) */}
                 <div className="flex items-start gap-3.5">
-                  <div className="p-2.5 lg:p-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-700 shrink-0">
+                  <a
+                    href="tel:+442085000000"
+                    aria-label="Call VIP desk"
+                    className="p-2.5 lg:p-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-700 shrink-0 hover:bg-amber-100 transition-colors"
+                  >
                     <Phone className="w-4 h-4 lg:w-5 lg:h-5" />
-                  </div>
+                  </a>
                   <div className="space-y-1">
                     <span className="text-stone-400 font-mono uppercase text-[9px] lg:text-[11px] block font-bold tracking-widest">VIP Desk & Concierge</span>
-                    <p className="text-amber-700 font-bold text-xs lg:text-sm font-mono">
+                    <a
+                      href="tel:+442085000000"
+                      className="inline-block text-amber-700 font-bold text-xs lg:text-sm font-mono hover:text-amber-900 hover:underline transition-colors cursor-pointer"
+                    >
                       +44 20 8500 0000
-                    </p>
+                    </a>
                     <span className="text-[10px] lg:text-xs text-stone-500 block">Direct Line for Private Members</span>
                   </div>
                 </div>
 
-                {/* Email */}
+                {/* Email (opens mail app) */}
                 <div className="flex items-start gap-3.5">
-                  <div className="p-2.5 lg:p-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-700 shrink-0">
+                  <a
+                    href="mailto:vijay@atsewa.com"
+                    aria-label="Send an email"
+                    className="p-2.5 lg:p-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-700 shrink-0 hover:bg-amber-100 transition-colors"
+                  >
                     <Mail className="w-4 h-4 lg:w-5 lg:h-5" />
-                  </div>
+                  </a>
                   <div className="space-y-1">
                     <span className="text-stone-400 font-mono uppercase text-[9px] lg:text-[11px] block font-bold tracking-widest">Encrypted Inquiries</span>
-                    <p className="text-stone-800 font-medium text-xs lg:text-sm font-mono">
-                      vijay@Atsewa.com
-                    </p>
+                    <a
+                      href="mailto:vijay@atsewa.com"
+                      className="inline-block text-stone-800 font-medium text-xs lg:text-sm font-mono hover:text-amber-700 hover:underline transition-colors cursor-pointer"
+                    >
+                      vijay@atsewa.com
+                    </a>
                   </div>
                 </div>
 
@@ -317,6 +348,13 @@ export default function Contact() {
                     className="w-full bg-stone-50/80 border border-amber-200 rounded-xl px-3.5 py-2.5 lg:px-4 lg:py-3 text-xs lg:text-sm text-stone-900 placeholder-stone-400 focus:outline-none focus:border-amber-600 focus:bg-white transition-colors resize-none"
                   />
                 </div>
+
+                {/* Error message (was set in state but never shown before) */}
+                {errorMsg && (
+                  <div className="text-xs lg:text-sm text-rose-700 bg-rose-50 border border-rose-200 rounded-xl px-3.5 py-2.5">
+                    {errorMsg}
+                  </div>
+                )}
 
                 {/* Submit Button */}
                 <button

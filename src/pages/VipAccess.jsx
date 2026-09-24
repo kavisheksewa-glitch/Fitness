@@ -34,6 +34,14 @@ export default function VipAccess() {
     }
   };
 
+  const hub = hubs[activeHub];
+
+  // Click on address / map opens this location in Google Maps
+  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(hub.address)}`;
+
+  // Click on phone opens the dialer (keeps only digits and +)
+  const telUrl = `tel:${hub.phone.replace(/[^\d+]/g, '')}`;
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -119,11 +127,17 @@ export default function VipAccess() {
               {/* Selected Hub Map & Details Card */}
               <div className="bg-white/95 backdrop-blur-sm border border-amber-200/80 rounded-3xl overflow-hidden shadow-sm space-y-4">
                 
-                {/* Visual Map Mockup / Image Container */}
-                <div className="relative h-56 md:h-64 lg:h-72 w-full overflow-hidden bg-stone-900">
+                {/* Map image (click opens Google Maps) */}
+                <a
+                  href={mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open location in Google Maps"
+                  className="relative block h-56 md:h-64 lg:h-72 w-full overflow-hidden bg-stone-900 cursor-pointer"
+                >
                   <img 
-                    src={hubs[activeHub].mapSrc} 
-                    alt={hubs[activeHub].city} 
+                    src={hub.mapSrc} 
+                    alt={hub.city} 
                     className="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent" />
@@ -131,20 +145,41 @@ export default function VipAccess() {
                   {/* Coordinates Tag on Map */}
                   <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-stone-900/90 backdrop-blur-md border border-amber-500/30 text-white px-3.5 py-1.5 lg:px-4 lg:py-2 rounded-xl text-[10px] lg:text-xs font-mono font-bold tracking-wider shadow-sm">
                     <Navigation className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-amber-400 animate-pulse" />
-                    <span>{hubs[activeHub].coordinates}</span>
+                    <span>{hub.coordinates}</span>
                   </div>
-                </div>
+
+                  {/* Open in Maps hint */}
+                  <div className="absolute bottom-4 right-4 bg-white/90 text-amber-800 border border-amber-200 px-3 py-1.5 rounded-xl text-[10px] lg:text-xs font-mono font-bold uppercase tracking-wider shadow-sm">
+                    Open in Maps
+                  </div>
+                </a>
 
                 {/* Hub Info Details */}
                 <div className="p-6 lg:p-7 pt-0 space-y-3 font-mono">
                   <div className="flex items-center justify-between">
-                    <span className="font-serif font-bold text-stone-900 text-base lg:text-lg">{hubs[activeHub].city}</span>
+                    <span className="font-serif font-bold text-stone-900 text-base lg:text-lg">{hub.city}</span>
                     <span className="text-[10px] lg:text-xs font-mono bg-amber-50 border border-amber-200 text-amber-800 px-3 py-1 lg:px-3.5 lg:py-1.5 rounded-full font-bold uppercase tracking-wider">Secured</span>
                   </div>
-                  <p className="text-xs lg:text-sm text-stone-600 font-sans">{hubs[activeHub].address}</p>
+
+                  {/* Address (opens Google Maps) */}
+                  <a
+                    href={mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block text-xs lg:text-sm text-stone-600 font-sans hover:text-amber-700 hover:underline transition-colors cursor-pointer"
+                  >
+                    {hub.address}
+                  </a>
+
                   <div className="flex flex-col sm:flex-row sm:items-center gap-3 text-xs lg:text-sm font-semibold text-stone-700 pt-3 border-t border-amber-100">
-                    <span className="flex items-center gap-1.5"><MapPin className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-amber-600" /> Biometric Gate #01</span>
-                    <span className="flex items-center gap-1.5"><Phone className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-amber-600" /> {hubs[activeHub].phone}</span>
+                    
+                    {/* Phone (opens dialer) */}
+                    <a
+                      href={telUrl}
+                      className="flex items-center gap-1.5 hover:text-amber-700 hover:underline transition-colors cursor-pointer"
+                    >
+                      <Phone className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-amber-600" /> {hub.phone}
+                    </a>
                   </div>
                 </div>
 
@@ -262,12 +297,26 @@ export default function VipAccess() {
 
                   </div>
 
+                  {/* Error message (was set in state but never shown before) */}
+                  {errorMsg && (
+                    <div className="text-xs lg:text-sm text-rose-700 bg-rose-50 border border-rose-200 rounded-xl px-3.5 py-2.5">
+                      {errorMsg}
+                    </div>
+                  )}
+
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-700 hover:to-yellow-700 text-white font-bold text-xs lg:text-sm uppercase tracking-[0.2em] py-3.5 lg:py-4 rounded-xl transition-all shadow-md shadow-amber-600/25 flex items-center justify-center gap-2 cursor-pointer"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-700 hover:to-yellow-700 text-white font-bold text-xs lg:text-sm uppercase tracking-[0.2em] py-3.5 lg:py-4 rounded-xl transition-all shadow-md shadow-amber-600/25 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                   >
-                    <span>Authorize Request</span>
-                    <ArrowRight className="w-4 h-4 lg:w-5 lg:h-5" />
+                    {isSubmitting ? (
+                      <span className="animate-pulse">Submitting Request...</span>
+                    ) : (
+                      <>
+                        <span>Authorize Request</span>
+                        <ArrowRight className="w-4 h-4 lg:w-5 lg:h-5" />
+                      </>
+                    )}
                   </button>
 
                 </form>
