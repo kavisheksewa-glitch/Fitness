@@ -15,20 +15,28 @@ export const dietPlans = {
         timing: "10:00 AM",
         calories: "450",
         items: [
-          { name: "Egg Whites + Whole Egg", portion: "220g whites + 1 whole" },
-          { name: "Cream of Rice (dry)", portion: "60g" }
+          { name: "Grilled Chicken Breast (herb & pepper)", portion: "120g" },
+          { name: "Couscous with Peas & Corn (cooked)", portion: "80g" },
+          { name: "Roasted Veggies (Broccoli, Zucchini, Sweet Potato, Bell Pepper)", portion: "100g" },
+          { name: "Avocado, Spinach, Tomato & Cucumber Salad", portion: "90g" },
+          { name: "Mixed Berries (Blueberry, Raspberry)", portion: "40g" },
+          { name: "Olive Oil (for roasting)", portion: "5g" }
         ],
-        note: "Take with 5g Glutamine and 300ml Black Coffee."
+        note: "Squeeze lime over the chicken and salad. Roast the veggies with minimal oil."
       },
       {
         title: "Core Protein & Micronutrient Load",
         timing: "01:30 PM",
         calories: "500",
         items: [
-          { name: "Creamie Kidney beans and Chickpeas", portion: "200g" },
-          { name: "Steamed Jasmine Rice and flatbread", portion: "150g" },
-          { name: "salad with mint chutney", portion: "100g" }
-        ]
+          { name: "Creamy Rajma (Kidney Beans)", portion: "100g" },
+          { name: "Chole (Chickpea Curry)", portion: "80g" },
+          { name: "Steamed Jasmine Rice", portion: "100g" },
+          { name: "Whole Wheat Roti / Flatbread", portion: "1 (30g)" },
+          { name: "Mint Chutney", portion: "15g" },
+          { name: "Onion & Cucumber Salad with Lime", portion: "60g" }
+        ],
+        note: "Keep the rice portion fixed, and eat the salad first for better satiety."
       }
     ]
   },

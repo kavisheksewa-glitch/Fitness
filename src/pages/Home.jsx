@@ -10,47 +10,48 @@ import {
   ChevronRight
 } from 'lucide-react';
 
-import home1 from '../assets/home1.webp';
+import home4 from '../assets/home4.webp';
 import home2 from '../assets/home2.webp';
 import home3 from '../assets/home3.webp';
-import home4 from '../assets/home4.webp';
-
+import home1 from '../assets/home1.webp';
+import Trainer3Img from '../assets/Trainner3.webp';
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState('all');
 
+  // NOTE: duration / burn / level values are estimates, adjust to your real programs.
   const workoutPrograms = [
     {
       id: 1,
-      category: 'muscle',
-      title: 'Hypertrophy & Power Mechanics',
-      subtitle: 'Progressive overload protocol for athletic muscle density',
+      category: 'hypertrophy',
+      title: 'Dumbbell Row & Hinge Hypertrophy',
+      subtitle: 'Heavy dumbbell rows and hinges for back and hamstring muscle density',
       image: home2,
       tag: 'Gym Strict',
       duration: '45-60 Mins',
-      calories: '620 kcal',
-      level: 'Advanced'
+      calories: '520 kcal',
+      level: 'Intermediate'
     },
     {
       id: 2,
-      category: 'home',
-      title: 'Bodyweight Calisthenics',
-      subtitle: 'Zero-equipment body control & explosive conditioning',
+      category: 'strength',
+      title: 'Barbell Deadlift & Posterior Chain Power',
+      subtitle: 'Heavy barbell pulls for hamstring, glute and lower-back strength',
       image: home3,
-      tag: 'Home / Gear-Free',
-      duration: '35 Mins',
+      tag: 'Barbell Power',
+      duration: '40 Mins',
       calories: '480 kcal',
-      level: 'All Levels'
+      level: 'Advanced'
     },
     {
       id: 3,
-      category: 'fatloss',
-      title: 'Metabolic Athletic Shred',
-      subtitle: 'High-intensity interval protocols for maximum fat oxidation',
+      category: 'back',
+      title: 'Lat Pulldown & Back Width Builder',
+      subtitle: 'Wide-grip cable pulldowns for a broader, thicker back',
       image: home4,
-      tag: 'HIIT Conditioning',
+      tag: 'Machine Training',
       duration: '40 Mins',
-      calories: '750 kcal',
-      level: 'High Intensity'
+      calories: '450 kcal',
+      level: 'Intermediate'
     }
   ];
 
@@ -177,8 +178,8 @@ export default function Home() {
             <div className="relative rounded-3xl overflow-hidden border border-amber-200 bg-stone-900 shadow-xl group">
 
               <img
-                src={home1}
-                alt="Athlete Heavy Lifting"
+                src={home4}
+                alt="Athlete performing lat pulldown"
                 className="w-full h-[360px] lg:h-[440px] object-cover object-center group-hover:scale-105 transition-transform duration-700 opacity-90"
               />
 
@@ -201,11 +202,11 @@ export default function Home() {
                 </div>
 
                 <h3 className="text-lg lg:text-xl font-bold text-white font-serif">
-                  Barbell Squat & Hypertrophy
+                  Lat Pulldown & Back Hypertrophy
                 </h3>
 
                 <p className="text-xs lg:text-sm text-stone-300 font-sans">
-                  Quadriceps, Core, and Gluteus Power Output
+                  Lats, Upper Back, and Biceps Power Output
                 </p>
 
               </div>
@@ -243,7 +244,7 @@ export default function Home() {
                 </span>
 
                 <span className="text-xs xl:text-sm font-bold text-stone-900">
-                  680 kcal / hr
+                  450 kcal / hr
                 </span>
               </div>
 
@@ -282,7 +283,7 @@ export default function Home() {
                   </span>
 
                   <span className="text-xs font-bold text-stone-900">
-                    680 kcal / hr
+                    450 kcal / hr
                   </span>
                 </div>
 
@@ -316,9 +317,9 @@ export default function Home() {
 
               {[
                 { id: 'all', label: 'All Routines' },
-                { id: 'muscle', label: 'Hypertrophy' },
-                { id: 'fatloss', label: 'Fat Shred' },
-                { id: 'home', label: 'Home Fitness' }
+                { id: 'hypertrophy', label: 'Hypertrophy' },
+                { id: 'strength', label: 'Strength' },
+                { id: 'back', label: 'Back Training' }
               ].map((tab) => (
 
                 <button
@@ -486,10 +487,11 @@ export default function Home() {
 
               <div className="lg:col-span-4 flex justify-center">
 
+                {/* object-top keeps the trainer's face in frame; opacity removed so the photo is not dull */}
                 <img
-                  src={home1}
-                  alt="Personal Trainer Coaching"
-                  className="rounded-2xl border border-amber-500/40 shadow-lg object-cover h-56 lg:h-64 w-full opacity-90"
+                  src={Trainer3Img}
+                  alt="Certified personal trainer with arms crossed"
+                  className="rounded-2xl border border-amber-500/40 shadow-lg object-cover object-top w-full h-72 lg:h-80"
                 />
 
               </div>

@@ -23,6 +23,16 @@ import {
 
 import workout1 from '../assets/workout1.mp4';
 import workout2 from '../assets/workout2.mp4';
+import workout3 from '../assets/workout3.mp4';
+import workout4 from '../assets/workout4.mp4';
+import workout5 from '../assets/workout5.mp4';
+import workout6 from '../assets/workout6.mp4';
+import workout7 from '../assets/workout7.mp4';
+import workout8 from '../assets/workout8.mp4';
+import workout9 from '../assets/workout9.mp4';
+import workout10 from '../assets/workout10.mp4';
+
+
 
 export default function Workouts() {
   const [activeTab, setActiveTab] = useState('all');
@@ -34,7 +44,7 @@ export default function Workouts() {
   // Home video routines: pehle sirf 4 dikhenge, "View All Videos" par sab 10 khulenge
   const [showAllVideos, setShowAllVideos] = useState(false);
 
-  const localVideos = [workout1, workout2];
+  const localVideos = [workout1, workout2, workout3, workout4, workout5, workout6,workout7, workout8, workout9, workout10];
 
   // Jab tak asli data me 10 videos na ho, dono existing local videos ko cycle karke
   // 10 workout cards bana rahe hain
@@ -70,7 +80,7 @@ export default function Workouts() {
     },
     {
       id: 'home',
-      label: 'Home Video Routines',
+      label: 'Home/Gym Video Routines',
       icon: <Home className="w-4 h-4 lg:w-5 lg:h-5" />,
     },
     {
@@ -312,7 +322,7 @@ export default function Workouts() {
 
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-stone-900 flex items-center gap-2.5 font-serif">
                   <Home className="w-5 h-5 lg:w-6 lg:h-6 text-amber-600" />
-                  Home Video Demonstrations
+                  Home/Gym Video Demonstrations
                 </h2>
               </div>
 
@@ -337,7 +347,7 @@ export default function Workouts() {
                         workout._videoIndex % localVideos.length
                       ]
                     }
-                    posterUrl={workout.posterUrl}
+                    // posterUrl={workout.posterUrl}
                     title={workout.title}
                     category={workout.category}
                     duration={workout.duration}

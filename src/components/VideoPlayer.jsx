@@ -1,24 +1,23 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { ShieldCheck } from 'lucide-react';
 
-export default function VideoPlayer({ 
-  videoUrl, 
-  posterUrl, 
-  title = "Bodyweight Execution Protocol", 
+export default function VideoPlayer({
+  videoUrl,
+  title = "Bodyweight Execution Protocol",
   category = "Home Workout"
 }) {
   const videoRef = useRef(null);
-  const [isDesktop, setIsDesktop] = useState(false);
 
-  // Detect device type once, on mount (mouse+hover = desktop, everything else = touch/mobile)
-  useEffect(() => {
-    const desktopQuery = window.matchMedia('(hover: hover) and (pointer: fine)');
-    setIsDesktop(desktopQuery.matches);
-  }, []);
+  // Pehle render me hi sahi value, taaki galti se scroll-autoplay na chale
+  const [isDesktop] = useState(
+    () =>
+      typeof window !== 'undefined' &&
+      window.matchMedia('(hover: hover) and (pointer: fine)').matches
+  );
 
-  // MOBILE: auto-play when scrolled into view, pause when scrolled out
+  // MOBILE: scroll me aane par play, bahar jaane par pause
   useEffect(() => {
-    if (isDesktop) return; // desktop uses hover instead, skip scroll-autoplay
+    if (isDesktop) return;
 
     const videoEl = videoRef.current;
     if (!videoEl) return;
@@ -40,7 +39,7 @@ export default function VideoPlayer({
     return () => observer.disconnect();
   }, [isDesktop]);
 
-  // DESKTOP: play on mouse hover, pause on mouse leave
+  // DESKTOP: hover par play, leave par pause + pehle frame par wapas
   const handleMouseEnter = () => {
     if (isDesktop && videoRef.current) {
       videoRef.current.play().catch(() => {});
@@ -50,10 +49,10 @@ export default function VideoPlayer({
   const handleMouseLeave = () => {
     if (isDesktop && videoRef.current) {
       videoRef.current.pause();
+      videoRef.current.currentTime = 0.1;
     }
   };
 
-  // Release the orientation lock once fullscreen closes, so the rest of the site isn't affected
   useEffect(() => {
     const handleFullscreenChange = () => {
       if (!document.fullscreenElement && screen.orientation && screen.orientation.unlock) {
@@ -64,9 +63,8 @@ export default function VideoPlayer({
     return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
   }, []);
 
-  // MOBILE: tap video to go fullscreen, locked to portrait
   const handleTap = () => {
-    if (isDesktop) return; // desktop doesn't need tap-to-fullscreen
+    if (isDesktop) return;
     const videoEl = videoRef.current;
     if (!videoEl) return;
 
@@ -74,13 +72,11 @@ export default function VideoPlayer({
       videoEl.requestFullscreen()
         .then(() => {
           if (screen.orientation && screen.orientation.lock) {
-            // Locks fullscreen to portrait on Android/Chrome-based browsers
             screen.orientation.lock('portrait').catch(() => {});
           }
         })
         .catch(() => {});
     } else if (videoEl.webkitEnterFullscreen) {
-      // iOS Safari's native video fullscreen — see note below, orientation lock isn't supported here
       videoEl.webkitEnterFullscreen();
     } else if (videoEl.webkitRequestFullscreen) {
       videoEl.webkitRequestFullscreen();
@@ -88,16 +84,14 @@ export default function VideoPlayer({
   };
 
   return (
-    <div 
+    <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className="relative w-full aspect-video bg-zinc-950 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl shadow-black/80"
     >
-      {/* Video Element */}
       <video
         ref={videoRef}
-        src={videoUrl}
-        poster={posterUrl}
+        src={`${videoUrl}#t=0.1`}   // poster ki jagah pehla frame
         onClick={handleTap}
         className="w-full h-full object-contain cursor-pointer"
         muted
@@ -106,7 +100,7 @@ export default function VideoPlayer({
         preload="metadata"
       />
 
-      {/* Top Gradient Overlay & Category Badge (visual only, no controls) */}
+      {/* Top overlay same as before */}
       <div className="absolute top-0 left-0 right-0 p-6 bg-gradient-to-b from-black/80 via-black/30 to-transparent pointer-events-none">
         <div className="flex items-center justify-between">
           <div>

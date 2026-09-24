@@ -32,7 +32,7 @@ export default function ClientNDA() {
           </h1>
 
           <p className="text-stone-600 text-xs md:text-sm font-normal leading-relaxed max-w-2xl mx-auto">
-            Standard Mutual Protection Protocol | ATSEWA PVT.LTD
+            Standard Mutual Protection Protocol | ATSEWA GmbH
           </p>
         </div>
 

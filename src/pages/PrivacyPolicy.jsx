@@ -47,7 +47,7 @@ export default function PrivacyPolicy() {
               <FileText className="w-4 h-4 text-amber-600 shrink-0" /> 1. Data Controller
             </h3>
             <p className="text-xs md:text-sm text-stone-600 leading-relaxed font-normal">
-              ATSEWA PVT. Ltd. ("ATSEWA", "we", "us", "our") is the data controller responsible for your personal data under UK data protection law. We are registered in England and Wales and, where applicable, registered with the Information Commissioner's Office (ICO) as a data controller.
+              ATSEWA GmbH ("ATSEWA", "we", "us", "our") is the data controller responsible for your personal data under UK data protection law. We are registered in England and Wales and, where applicable, registered with the Information Commissioner's Office (ICO) as a data controller.
             </p>
           </div>
 
@@ -146,7 +146,7 @@ export default function PrivacyPolicy() {
               <Mail className="w-4 h-4 text-amber-600 shrink-0" /> 10. Contact Us
             </h3>
             <p className="text-xs md:text-sm text-stone-600 leading-relaxed font-normal">
-              For any questions regarding this policy or to exercise your data protection rights, please contact our Data Protection point of contact at privacy atsewa@gmail.com. If you are unsatisfied with our response, you have the right to lodge a complaint with the ICO at{' '}
+              For any questions regarding this policy or to exercise your data protection rights, please contact our Data Protection point of contact at privacy Atsewa@gmail.com. If you are unsatisfied with our response, you have the right to lodge a complaint with the ICO at{' '}
               <span className="text-amber-700 font-medium">ico.org.uk</span> or by calling 0303 123 1113.
             </p>
           </div>

@@ -37,39 +37,157 @@ export const gymWorkouts = [
   },
 ];
 
+// NOTE: Order of this array = order of videos in localVideos (workout1 ... workout10).
+// Card number N shows workout N video, so keep both in the same order.
 export const homeWorkouts = [
   {
-    id: 'home-01',
-    title: 'Decline Push-Up & Core Execution',
-    category: 'Home Workout',
+    id: 'video-01',
+    title: 'Decline Push-Up',
+    category: 'Bodyweight',
     difficulty: 'Intermediate',
-    duration: '0:45',
     targetGroup: 'Upper Chest, Anterior Delts & Core',
-    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-man-training-with-a-cable-machine-40262-large.mp4',
-    posterUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop',
-    description: 'Elevate your feet on a chair or platform to shift load onto upper pectoral fibers and stabilize deep abdominal muscles.',
+    description:
+      'Feet elevated on a bench shift more load onto the upper chest and shoulders while your core works to keep the body rigid.',
     instructions: [
-      'Place feet on an elevated surface (12-18 inches high).',
-      'Maintain a rigid plank line from shoulders to ankles.',
-      'Lower torso under control until chest nearly grazes the floor.',
-      'Explode upward using pectoral contraction.',
+      'Place your feet on a bench (12-18 inches high) with hands slightly wider than shoulders.',
+      'Keep a straight line from shoulders to ankles; squeeze glutes and abs.',
+      'Lower your chest under control until it nearly touches the floor.',
+      'Press up powerfully without letting your hips sag.',
     ],
   },
   {
-    id: 'home-02',
-    title: 'Isokinetic Bodyweight Squats & Hold',
-    category: 'Home Workout',
-    difficulty: 'Beginner to Advanced',
-    duration: '1:10',
-    targetGroup: 'Quadriceps, Glutes & Mobility',
-    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-gym-equipment-for-weight-training-40263-large.mp4',
-    posterUrl: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=1200&auto=format&fit=crop',
-    description: 'Combine continuous-tension bodyweight squats with a 3-second isometric pause at parallel squat depth.',
+    id: 'video-02',
+    title: 'Bodyweight Squat',
+    category: 'Bodyweight',
+    difficulty: 'Beginner',
+    targetGroup: 'Quadriceps, Glutes & Core',
+    description:
+      'A foundational lower-body movement that builds leg strength and mobility, with hands clasped at the chest for balance.',
     instructions: [
-      'Position feet slightly wider than shoulder-width with toes flared 15 degrees.',
-      'Descend slowly taking 3 full seconds to reach parallel.',
-      'Hold static at parallel position for 3 seconds.',
-      'Drive upward through heels without locking knees at the top.',
+      'Stand with feet shoulder-width apart, toes turned out slightly.',
+      'Clasp your hands at chest height and keep your chest up.',
+      'Sit your hips back and down until thighs are parallel to the floor.',
+      'Drive through your heels to stand tall without locking the knees hard.',
+    ],
+  },
+  {
+    id: 'video-03',
+    title: 'Barbell Back Squat',
+    category: 'Gym Workout',
+    difficulty: 'Advanced',
+    targetGroup: 'Quads, Glutes, Hamstrings & Core',
+    description:
+      'The king of leg exercises. A loaded barbell on the upper back builds total lower-body strength and muscle mass.',
+    instructions: [
+      'Set the bar at upper-chest height, place it on your upper traps and grip just outside shoulder width.',
+      'Unrack, step back and set your feet shoulder-width apart; brace your core.',
+      'Squat down until thighs are at least parallel, knees tracking over toes.',
+      'Drive up through mid-foot, keeping chest up and back tight.',
+    ],
+  },
+  {
+    id: 'video-04',
+    title: 'Barbell Deadlift',
+    category: 'Gym Workout',
+    difficulty: 'Advanced',
+    targetGroup: 'Hamstrings, Glutes, Lower Back & Traps',
+    description:
+      'A full posterior-chain lift where you pull a loaded bar from the floor to a tall standing position.',
+    instructions: [
+      'Stand with the bar over mid-foot, hinge down and grip just outside your legs.',
+      'Flatten your back, lift your chest and brace your core before pulling.',
+      'Push the floor away and drag the bar close to your shins and thighs.',
+      'Lock out with hips and knees together, then lower the bar with control.',
+    ],
+  },
+  {
+    id: 'video-05',
+    title: 'Seated Barbell Shoulder Press',
+    category: 'Gym Workout',
+    difficulty: 'Intermediate',
+    targetGroup: 'Shoulders, Triceps & Upper Chest',
+    description:
+      'A back-supported overhead press that builds strong, broad shoulders while limiting lower-back strain.',
+    instructions: [
+      'Sit with your back firmly against the pad and grip the bar slightly wider than shoulders.',
+      'Start with the bar at collarbone level and elbows slightly in front of the bar.',
+      'Press the bar straight overhead until your arms are fully extended.',
+      'Lower slowly back to collarbone height and repeat.',
+    ],
+  },
+  {
+    id: 'video-06',
+    title: 'Wide-Grip Pull-Up',
+    category: 'Bodyweight',
+    difficulty: 'Advanced',
+    targetGroup: 'Lats, Upper Back & Biceps',
+    description:
+      'A classic bodyweight back builder. The wide overhand grip puts extra focus on the lats for a V-shaped back.',
+    instructions: [
+      'Grab the bar with an overhand grip wider than shoulder width and hang fully.',
+      'Pull your shoulder blades down and back to start the movement.',
+      'Drive your elbows down toward your ribs until your chin clears the bar.',
+      'Lower for 2-3 seconds to a full hang; avoid swinging.',
+    ],
+  },
+  {
+    id: 'video-07',
+    title: 'Single-Arm Cable Curl',
+    category: 'Gym Workout',
+    difficulty: 'Intermediate',
+    targetGroup: 'Biceps & Brachialis',
+    description:
+      'Cables keep constant tension on the biceps through the full range, making this great for muscle definition.',
+    instructions: [
+      'Stand facing the cable machine with a single handle and keep your elbow pinned to your side.',
+      'Curl the handle up toward your shoulder without swinging your body.',
+      'Squeeze your bicep hard for one second at the top.',
+      'Lower slowly until your arm is almost fully straight.',
+    ],
+  },
+  {
+    id: 'video-08',
+    title: 'Dumbbell Romanian Deadlift',
+    category: 'Gym Workout',
+    difficulty: 'Intermediate',
+    targetGroup: 'Hamstrings, Glutes & Lower Back',
+    description:
+      'A hip-hinge movement with dumbbells that deeply stretches and strengthens the hamstrings and glutes.',
+    instructions: [
+      'Stand with feet hip-width apart, dumbbells in front of your thighs, knees slightly bent.',
+      'Push your hips back and slide the dumbbells down along your legs.',
+      'Lower until you feel a strong hamstring stretch, keeping your back flat.',
+      'Squeeze your glutes and drive your hips forward to stand tall.',
+    ],
+  },
+  {
+    id: 'video-09',
+    title: 'EZ-Bar Preacher Curl',
+    category: 'Gym Workout',
+    difficulty: 'Intermediate',
+    targetGroup: 'Biceps (Lower & Peak)',
+    description:
+      'Resting your arms on the preacher pad removes momentum, so the biceps do all the work.',
+    instructions: [
+      'Sit at the preacher bench with upper arms flat on the pad and grip the EZ-bar at shoulder width.',
+      'Curl the bar up without lifting your elbows off the pad.',
+      'Pause and squeeze your biceps at the top.',
+      'Lower slowly until your arms are almost straight, without locking out.',
+    ],
+  },
+  {
+    id: 'video-10',
+    title: 'Dumbbell Walking Lunge',
+    category: 'Gym Workout',
+    difficulty: 'Intermediate',
+    targetGroup: 'Quads, Glutes & Hamstrings',
+    description:
+      'A dynamic single-leg exercise that builds leg strength, balance and coordination while moving forward.',
+    instructions: [
+      'Hold a dumbbell in each hand at your sides and stand tall.',
+      'Take a long step forward and lower your back knee toward the floor.',
+      'Keep your front knee over the ankle and your torso upright.',
+      'Push through the front heel and step into the next lunge with the other leg.',
     ],
   },
 ];

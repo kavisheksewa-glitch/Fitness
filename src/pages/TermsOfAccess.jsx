@@ -43,7 +43,7 @@ export default function TermAccess() {
               <Scale className="w-4 h-4 text-amber-600 shrink-0" /> 1. Membership & Facility Access
             </h3>
             <p className="text-xs md:text-sm text-stone-600 leading-relaxed font-normal">
-              Access to ATSEWA PVT.LTD infrastructure and digital training ecosystems requires strict adherence to our security credentials. Unauthorized sharing of VIP access tokens or digital keys will result in immediate termination of contract.
+              Access to ATSEWA GmbH infrastructure and digital training ecosystems requires strict adherence to our security credentials. Unauthorized sharing of VIP access tokens or digital keys will result in immediate termination of contract.
             </p>
           </div>
 

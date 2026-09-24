@@ -2,8 +2,11 @@
 
 import Trainer1Img from '../assets/Trainner1.webp';
 import Trainer2Img from '../assets/Trainner2.webp';
+import Trainer3Img from '../assets/Trainner3.webp';
+import Trainer4Img from '../assets/Trainner4.webp';
 
-const trainerImages = [Trainer1Img, Trainer2Img];
+
+const trainerImages = [Trainer1Img, Trainer2Img, Trainer3Img, Trainer4Img];
 
 export const trainersData = [
   {
@@ -71,7 +74,7 @@ export const trainersData = [
     ],
     bio: 'Alistair constructs hyper-customized bio-individual nutrition frameworks that optimize metabolic efficiency, hormonal health, and rapid fat oxidation without muscle loss.',
     quote: 'Nutrition is chemical programming. Input precision compounds, and the metabolic machine responds instantaneously.',
-    imageUrl: trainerImages[0], // Trainner1.webp
+    imageUrl: trainerImages[2], // Trainner1.webp
     stats: {
       clientTransformations: '500+',
       proAthletesCoached: '65',
@@ -95,7 +98,7 @@ export const trainersData = [
     ],
     bio: 'Darius brings militarized discipline and extreme conditioning methodologies to the private studio, pushing elite clients past mental and physiological barriers.',
     quote: 'Comfort is the enemy of evolution. Embrace the friction, dominate the timer, and claim your physical peak.',
-    imageUrl: trainerImages[1], // Trainner.webp
+    imageUrl: trainerImages[3], // Trainner.webp
     stats: {
       clientTransformations: '210+',
       proAthletesCoached: '29',

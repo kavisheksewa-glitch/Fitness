@@ -121,9 +121,9 @@ export default function Contact() {
                   <div className="space-y-1">
                     <span className="text-stone-400 font-mono uppercase text-[9px] lg:text-[11px] block font-bold tracking-widest">Headquarters & Facility</span>
                     <p className="text-stone-800 font-medium text-xs lg:text-sm leading-relaxed">
-                      ATSEWA PVT.LTD <br />
-                      740 Park Avenue, Executive Level 4 <br />
-                      New York, NY 10021
+                      ATSEWA GmbH <br />
+                      9b The Broadway, Woodford Green, <br />
+                      Essex IG8 0HL,U.K
                     </p>
                   </div>
                 </div>
@@ -136,7 +136,7 @@ export default function Contact() {
                   <div className="space-y-1">
                     <span className="text-stone-400 font-mono uppercase text-[9px] lg:text-[11px] block font-bold tracking-widest">VIP Desk & Concierge</span>
                     <p className="text-amber-700 font-bold text-xs lg:text-sm font-mono">
-                      +1 (800) 555-ATSEWA
+                      +44 20 8500 0000
                     </p>
                     <span className="text-[10px] lg:text-xs text-stone-500 block">Direct Line for Private Members</span>
                   </div>
@@ -150,7 +150,7 @@ export default function Contact() {
                   <div className="space-y-1">
                     <span className="text-stone-400 font-mono uppercase text-[9px] lg:text-[11px] block font-bold tracking-widest">Encrypted Inquiries</span>
                     <p className="text-stone-800 font-medium text-xs lg:text-sm font-mono">
-                      ATSEWA@Gmail.com
+                      vijay@Atsewa.com
                     </p>
                   </div>
                 </div>
